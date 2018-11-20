@@ -1,0 +1,7 @@
+people.form:
+ path: '/name/form_messenger'
+ defaults:
+   _title: 'Name Form'
+   _form: '\Drupal\name_form_messenger\Form\NameFormMessenger'
+ requirements:
+   _permission: 'access content'
