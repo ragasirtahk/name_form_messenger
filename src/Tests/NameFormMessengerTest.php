@@ -9,7 +9,7 @@ use Drupal\simpletest\WebTestBase;
  *
  * @group name_form
  */
-class NameFormMessengerTest extends WebTestBase {
+class NameFormMessengerTest extends WebTestBase { 
 
   /**
    * Modules to install.
