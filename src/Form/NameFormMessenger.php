@@ -15,7 +15,7 @@ class NameFormMessenger extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function getFormId() { 
+  public function getFormId() {
     return 'name_form_messenger';
   }
 
