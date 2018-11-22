@@ -40,6 +40,7 @@ class NameFormMessenger extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
+    $name = $form_state->getValue('name');
     $this->messenger()->addMessage($this->t('Name: @name', ['@name' => $name]));
   }
 
