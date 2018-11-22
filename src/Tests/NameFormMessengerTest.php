@@ -23,7 +23,7 @@ class NameFormMessengerTest extends WebTestBase {
    */
   public function testNameFormMessengerRouterUrlIsAccessible() {
     $this->drupalGet('name/form_messenger');
-    $this->assertResponse(200, 'URL is accessible to user.');
+    $this->assertResponse(200, 'URL is accessible to the user.');
   }
 
   /**
@@ -32,7 +32,7 @@ class NameFormMessengerTest extends WebTestBase {
   public function testNameFormMessengerSubmitButtonExists() {
     $this->drupalGet('name/form_messenger');
     $this->assertResponse(200);
-    $this->assertFieldById('edit-submit', 'Submit!', 'User can submit the form.');
+    $this->assertFieldById('edit-submit', 'Submit!', 'The User can submit the form.');
   }
 
   /**
