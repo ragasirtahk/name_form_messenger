@@ -30,7 +30,7 @@ class NameFormMessenger extends FormBase {
     $form['actions']['#type'] = 'actions';
     $form['actions']['submit'] = [
       '#type' => 'submit',
-      '#value' => $this->t('Submit!'),
+      '#value' => $this->t('Submit'),
       '#button_type' => 'primary',
     ];
     return $form;
