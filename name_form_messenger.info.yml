@@ -1,5 +1,5 @@
 name: Name (Messenger)
-description: A form to ask user's name and then display it back.
+description: 'A form to ask user's name and then display it back.'
 core: 8.x
 package: Form
 type: module
