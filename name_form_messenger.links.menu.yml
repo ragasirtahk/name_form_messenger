@@ -1,0 +1,6 @@
+name_form_messenger.demo:
+  title: 'Name Form'
+  description: 'Redirects you to Name Form'
+  parent: main
+  menu_name: main
+  route_name: people.form
