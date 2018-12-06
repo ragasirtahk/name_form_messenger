@@ -3,7 +3,9 @@
 namespace Drupal\name_form_messenger\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
-use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Form\FormBuilderInterface;
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Asks user's name and then displays it back.
@@ -13,22 +15,37 @@ use Drupal\Core\Form\FormStateInterface;
  *   admin_label = @Translation("Name Form"),
  * )
  */
-class NameFormMessengerBlock extends BlockBase {
+class NameFormMessengerBlock extends BlockBase implements ContainerFactoryPluginInterface {
+  /**
+   * {@inheritdoc}
+   */
+  protected $formBuilder;
 
   /**
    * {@inheritdoc}
    */
-  public function build() {
-    return \Drupal::formBuilder()->getForm('Drupal\name_form_messenger\Form\NameFormMessenger');
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+    return new static(
+      $configuration,
+      $plugin_id,
+      $plugin_definition,
+      $container->get('form_builder')
+    );
   }
 
   /**
    * {@inheritdoc}
    */
-  public function blockForm($form, FormStateInterface $form_state) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, FormBuilderInterface $formBuilder) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition);
+    $this->formBuilder = $formBuilder;
+  }
 
-    $form = parent::blockForm($form, $form_state);
-
+  /**
+   * {@inheritdoc}
+   */
+  public function build() {
+    $form = $this->formBuilder->getForm('Drupal\name_form_messenger\Form\NameFormMessenger');
     return $form;
   }
 
